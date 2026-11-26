@@ -1,0 +1,99 @@
+NETWORK_PASSPHRASE = "Public Global Stellar Network ; September 2015"
+VERSION = "2.7.0"
+
+[DOCUMENTATION]
+ORG_NAME = "XLM Project"
+ORG_DBA = "XLM Project"
+ORG_URL = "https://xlmproject.github.io"
+ORG_LOGO = "https://xlmproject.github.io/logo.png"
+ORG_DESCRIPTION = "XLM Project is dedicated to bridging major cryptocurrency assets to the Stellar network, providing seamless interoperability, high-speed transactions, and low-cost transfers for a diverse range of digital assets."
+
+[[CURRENCIES]]
+code = "ADA"
+issuer = "GD4YAI6OLL6UB66JZ2D7T2CTSEFMR7V44HGZNHZX7Y4NIMRDIAP3SUSA"
+display_decimals = 6
+name = "Cardano"
+desc = "ADA is a representation of Cardano on the Stellar network, enabling fast and low-cost transactions and interoperability with the broader Stellar ecosystem."
+image = "https://xlmproject.github.io/assets/ADA.png"
+fixed_number = 600000000000
+
+[[CURRENCIES]]
+code = "BNB"
+issuer = "GD4YAI6OLL6UB66JZ2D7T2CTSEFMR7V44HGZNHZX7Y4NIMRDIAP3SUSA"
+display_decimals = 6
+name = "Binance Coin"
+desc = "BNB is a representation of Binance Coin on the Stellar network, facilitating seamless cross-chain utility and decentralized exchange operations."
+image = "https://xlmproject.github.io/assets/BNB.png"
+fixed_number = 600000000000
+
+[[CURRENCIES]]
+code = "BTC"
+issuer = "GD4YAI6OLL6UB66JZ2D7T2CTSEFMR7V44HGZNHZX7Y4NIMRDIAP3SUSA"
+display_decimals = 6
+name = "Bitcoin"
+desc = "BTC is a representation of Bitcoin on the Stellar network, bringing the world's premier digital store of value to Stellar's high-speed, low-fee environment."
+image = "https://xlmproject.github.io/assets/BTC.png"
+fixed_number = 600000000000
+
+[[CURRENCIES]]
+code = "DOGE"
+issuer = "GD4YAI6OLL6UB66JZ2D7T2CTSEFMR7V44HGZNHZX7Y4NIMRDIAP3SUSA"
+display_decimals = 6
+name = "Dogecoin"
+desc = "DOGE is a representation of Dogecoin on the Stellar network, combining the fun and community spirit of the original meme coin with Stellar's efficient infrastructure."
+image = "https://xlmproject.github.io/assets/DOGE.png"
+fixed_number = 600000000000
+
+[[CURRENCIES]]
+code = "ETH"
+issuer = "GD4YAI6OLL6UB66JZ2D7T2CTSEFMR7V44HGZNHZX7Y4NIMRDIAP3SUSA"
+display_decimals = 6
+name = "Ethereum"
+desc = "ETH is a representation of Ethereum on the Stellar network, enabling smart contract interoperability and decentralized finance access within the Stellar ecosystem."
+image = "https://xlmproject.github.io/assets/ETH.png"
+fixed_number = 600000000000
+
+[[CURRENCIES]]
+code = "PEPE"
+issuer = "GD4YAI6OLL6UB66JZ2D7T2CTSEFMR7V44HGZNHZX7Y4NIMRDIAP3SUSA"
+display_decimals = 6
+name = "Pepe"
+desc = "PEPE is a representation of the Pepe meme token on the Stellar network, offering a community-driven asset with high liquidity and fast settlement."
+image = "https://xlmproject.github.io/assets/PEPE.png"
+fixed_number = 600000000000
+
+[[CURRENCIES]]
+code = "SHIBA"
+issuer = "GD4YAI6OLL6UB66JZ2D7T2CTSEFMR7V44HGZNHZX7Y4NIMRDIAP3SUSA"
+display_decimals = 6
+name = "Shiba Inu"
+desc = "SHIBA is a representation of Shiba Inu on the Stellar network, bringing the popular community-centric token to a faster and more cost-effective blockchain environment."
+image = "https://xlmproject.github.io/assets/SHIBA.png"
+fixed_number = 600000000000
+
+[[CURRENCIES]]
+code = "SOL"
+issuer = "GD4YAI6OLL6UB66JZ2D7T2CTSEFMR7V44HGZNHZX7Y4NIMRDIAP3SUSA"
+display_decimals = 6
+name = "Solana"
+desc = "SOL is a representation of Solana on the Stellar network, bridging high-performance decentralized applications with Stellar's global payment rails."
+image = "https://xlmproject.github.io/assets/SOL.png"
+fixed_number = 600000000000
+
+[[CURRENCIES]]
+code = "TRX"
+issuer = "GD4YAI6OLL6UB66JZ2D7T2CTSEFMR7V44HGZNHZX7Y4NIMRDIAP3SUSA"
+display_decimals = 6
+name = "TRON"
+desc = "TRX is a representation of TRON on the Stellar network, facilitating cross-chain content sharing and decentralized entertainment with Stellar's robust infrastructure."
+image = "https://xlmproject.github.io/assets/TRX.png"
+fixed_number = 600000000000
+
+[[CURRENCIES]]
+code = "XLM"
+issuer = "GD4YAI6OLL6UB66JZ2D7T2CTSEFMR7V44HGZNHZX7Y4NIMRDIAP3SUSA"
+display_decimals = 6
+name = "Stellar Lumens"
+desc = "XLM is a representative token of Stellar Lumens issued by this anchor, maintaining the core utility of fueling transactions and operations within the Stellar ecosystem."
+image = "https://xlmproject.github.io/assets/XLM.png"
+fixed_number = 600000000000
