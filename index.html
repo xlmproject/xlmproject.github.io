@@ -1,84 +1,627 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>XLM Project — Coming Soon</title>
+  <!-- ============ SEO / META (Google + Bing) ============ -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>XLM Project | Immutable Anchored Tokens on Stellar</title>
+  <meta name="description" content="XLM Project brings ADA, BNB, BTC, DOGE, ETH, PEPE, SHIBA, SOL, TRX and XLM to the Stellar blockchain as immutable anchored tokens with a fixed 600,000,000,000 supply. Buy, swap and trade instantly on the Stellar DEX — fast, cheap and permanently active." />
+  <meta name="keywords" content="Stellar, XLM, anchored tokens, ADA, BNB, BTC, DOGE, ETH, PEPE, SHIBA INU, SOL, TRX, Lumenswap, StellarTerm, SDEX, immutable token, fixed supply, crypto, buy stellar tokens, stellar.toml" />
+  <meta name="author" content="XLM Project" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+  <meta name="theme-color" content="#0a0a12" />
+  <link rel="canonical" href="https://xlmproject.github.io/" />
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <link rel="apple-touch-icon" href="assets/favicon.png" />
 
-<style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="XLM Project" />
+  <meta property="og:title" content="XLM Project — Immutable Anchored Tokens on Stellar" />
+  <meta property="og:description" content="10 major crypto assets (ADA, BNB, BTC, DOGE, ETH, PEPE, SHIBA, SOL, TRX, XLM) as fixed-supply, permanently-active tokens on the Stellar network." />
+  <meta property="og:url" content="https://xlmproject.github.io/" />
+  <meta property="og:image" content="https://xlmproject.github.io/assets/og-cover.png" />
+  <meta property="og:image:alt" content="XLM Project token badges" />
+  <meta property="og:locale" content="en_US" />
 
-body {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #070b16;
-    color: #ffffff;
-    font-family: Arial, sans-serif;
-    text-align: center;
-}
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="XLM Project — Immutable Anchored Tokens on Stellar" />
+  <meta name="twitter:description" content="Buy ADA, BNB, BTC, DOGE, ETH, PEPE, SHIBA, SOL, TRX & XLM on Stellar. Fixed 600B supply. Permanently active." />
+  <meta name="twitter:image" content="https://xlmproject.github.io/assets/og-cover.png" />
 
-.container {
-    padding: 30px;
-}
+  <!-- Structured data for rich results -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://xlmproject.github.io/#org",
+        "name": "XLM Project",
+        "url": "https://xlmproject.github.io",
+        "logo": "https://xlmproject.github.io/assets/logo.png",
+        "description": "Anchor issuing fixed-supply, immutable representations of major crypto assets on the Stellar network.",
+        "sameAs": ["https://github.com/xlmproject", "https://x.com/xlmproject"]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://xlmproject.github.io/#website",
+        "url": "https://xlmproject.github.io/",
+        "name": "XLM Project",
+        "publisher": { "@id": "https://xlmproject.github.io/#org" },
+        "potentialAction": { "@type": "SearchAction", "target": "https://xlmproject.github.io/?q={query}", "query-input": "required name=query" }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "What are XLM Project tokens?", "acceptedAnswer": { "@type": "Answer", "text": "They are anchored representations of ADA, BNB, BTC, DOGE, ETH, PEPE, SHIBA, SOL, TRX and XLM issued on the Stellar network by issuer GD4YAI6OLL6UB66JZ2D7T2CTSEFMR7V44HGZNHZX7Y4NIMRDIAP3SUSA with a fixed supply of 600,000,000,000 each." } },
+          { "@type": "Question", "name": "How do I buy these tokens?", "acceptedAnswer": { "@type": "Answer", "text": "Create a Stellar wallet (Lobstr, Freighter or Rabet), fund it with XLM, add a trustline, then swap on the Stellar DEX via StellarTerm or Lumenswap." } },
+          { "@type": "Question", "name": "What does immutable mean?", "acceptedAnswer": { "@type": "Answer", "text": "The issuer account's master key threshold is set to zero, so no new tokens can ever be minted and configuration cannot be changed — the supply is locked forever." } }
+        ]
+      }
+    ]
+  }
+  </script>
 
-.logo {
-    font-size: 18px;
-    font-weight: 700;
-    letter-spacing: 5px;
-    color: #4da3ff;
-    margin-bottom: 35px;
-}
+  <style>
+    /* ============ DESIGN TOKENS ============ */
+    :root{
+      --bg:#0a0a12; --bg2:#0f0f1d; --panel:#13132a; --panel2:#1a1a35;
+      --txt:#e9e9f5; --muted:#9aa0c0; --line:rgba(255,255,255,.08);
+      --brand:#7c5cff; --brand2:#22d3ee; --gold:#f5c542; --green:#22e06b;
+      --red:#ff3b5c; --blue:#3468d1; --violet:#8a5cff; --teal:#14f1d9; --yellow:#f0b90b;
+      --radius:18px; --maxw:1200px;
+      --shadow:0 20px 60px rgba(0,0,0,.5);
+      --font:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+    body{font-family:var(--font);background:var(--bg);color:var(--txt);line-height:1.6;overflow-x:hidden}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .wrap{width:min(100% - 32px,var(--maxw));margin-inline:auto}
+    .section{padding:clamp(56px,9vw,110px) 0;position:relative}
+    .kicker{display:inline-flex;align-items:center;gap:8px;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--brand2);font-weight:700}
+    .kicker::before{content:"";width:26px;height:2px;background:linear-gradient(90deg,var(--brand),var(--brand2))}
+    h1,h2,h3{line-height:1.15;letter-spacing:-.02em}
+    h2{font-size:clamp(1.7rem,4vw,2.6rem);margin:.35em 0 .5em}
+    .lead{color:var(--muted);max-width:62ch;font-size:clamp(1rem,1.4vw,1.12rem)}
+    .center{text-align:center}
+    .center .lead{margin-inline:auto}
 
-h1 {
-    font-size: clamp(38px, 8vw, 68px);
-    font-weight: 600;
-    letter-spacing: 3px;
-    margin-bottom: 18px;
-}
+    /* ============ BACKGROUND FX ============ */
+    #stars{position:fixed;inset:0;z-index:-2;background:
+      radial-gradient(1200px 600px at 80% -10%,rgba(124,92,255,.18),transparent 60%),
+      radial-gradient(900px 500px at 10% 110%,rgba(34,211,238,.14),transparent 60%),
+      var(--bg);}
+    #grid{position:fixed;inset:0;z-index:-1;opacity:.35;
+      background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+      background-size:46px 46px;mask-image:radial-gradient(circle at 50% 30%,#000,transparent 75%)}
 
-p {
-    color: #8994aa;
-    font-size: 14px;
-    letter-spacing: 1px;
-}
+    /* ============ NAV ============ */
+    header{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);
+      background:rgba(10,10,18,.6);border-bottom:1px solid var(--line)}
+    .nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+    .logo{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.04em}
+    .logo .coin{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;
+      background:conic-gradient(from 0deg,var(--gold),var(--brand),var(--brand2),var(--gold));
+      box-shadow:0 0 18px rgba(124,92,255,.6);font-weight:900;color:#0a0a12}
+    .nav ul{display:flex;gap:26px;list-style:none}
+    .nav ul a{color:var(--muted);font-weight:600;font-size:.92rem;transition:.2s}
+    .nav ul a:hover{color:var(--txt)}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border-radius:12px;
+      font-weight:700;cursor:pointer;border:1px solid transparent;transition:transform .15s,box-shadow .2s,background .2s}
+    .btn-primary{background:linear-gradient(135deg,var(--brand),var(--brand2));color:#06060c;box-shadow:0 8px 24px rgba(124,92,255,.4)}
+    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(34,211,238,.5)}
+    .btn-ghost{background:rgba(255,255,255,.04);border-color:var(--line);color:var(--txt)}
+    .btn-ghost:hover{background:rgba(255,255,255,.09)}
+    .burger{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:8px}
+    .burger span{width:24px;height:2px;background:var(--txt);transition:.3s}
 
-.line {
-    width: 55px;
-    height: 2px;
-    background: #398cff;
-    margin: 30px auto;
-}
+    /* ============ TICKER ============ */
+    .ticker{border-block:1px solid var(--line);background:rgba(255,255,255,.02);overflow:hidden;white-space:nowrap}
+    .track{display:inline-flex;gap:34px;padding:12px 0;animation:slide 32s linear infinite}
+    .track:hover{animation-play-state:paused}
+    .tick{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:.9rem}
+    .dot{width:8px;height:8px;border-radius:50%;box-shadow:0 0 10px currentColor;animation:pulse 1.6s infinite}
+    @keyframes slide{to{transform:translateX(-50%)}}
+    @keyframes pulse{50%{opacity:.35;transform:scale(.7)}}
 
-footer {
-    position: absolute;
-    bottom: 25px;
-    font-size: 11px;
-    color: #515c70;
-    letter-spacing: 1px;
-}
-</style>
+    /* ============ HERO ============ */
+    .hero{padding-top:clamp(40px,7vw,80px);text-align:center}
+    .hero h1{font-size:clamp(2.1rem,6vw,4rem);font-weight:900}
+    .grad{background:linear-gradient(120deg,var(--gold),var(--brand2),var(--brand),var(--green));
+      -webkit-background-clip:text;background-clip:text;color:transparent;background-size:200% 200%;animation:flow 6s ease infinite}
+    @keyframes flow{50%{background-position:100% 50%}}
+    .badges{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:18px 0 8px}
+    .chip{display:inline-flex;align-items:center;gap:7px;padding:7px 13px;border:1px solid var(--line);
+      border-radius:999px;background:rgba(255,255,255,.03);font-size:.82rem;font-weight:700;color:var(--muted)}
+    .chip b{color:var(--green)}
+    .coin-collage{display:flex;flex-wrap:wrap;gap:clamp(10px,2vw,22px);justify-content:center;margin:34px 0 6px}
+    .coin-collage .orb{width:clamp(58px,9vw,92px);height:clamp(58px,9vw,92px);border-radius:50%;
+      display:grid;place-items:center;font-weight:900;color:#0a0a12;position:relative;
+      background:radial-gradient(circle at 30% 30%,#fff2,transparent 60%),var(--c);
+      box-shadow:0 0 0 2px #0006,0 0 26px var(--c),inset 0 -8px 18px #0007;
+      animation:float 5s ease-in-out infinite;animation-delay:var(--d)}
+    .coin-collage .orb::after{content:"";position:absolute;inset:-6px;border-radius:50%;
+      border:2px solid var(--c);opacity:.35;filter:blur(1px)}
+    @keyframes float{50%{transform:translateY(-12px)}}
+
+    /* ============ STATS ============ */
+    .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-top:8px}
+    .stat{background:linear-gradient(180deg,var(--panel),var(--bg2));border:1px solid var(--line);
+      border-radius:var(--radius);padding:22px 16px;text-align:center}
+    .stat .num{font-size:clamp(1.5rem,3.4vw,2.2rem);font-weight:900;color:var(--brand2)}
+    .stat .lbl{font-size:.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em}
+
+    /* ============ TOKEN GRID ============ */
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px}
+    .card{position:relative;background:linear-gradient(180deg,var(--panel),var(--bg2));border:1px solid var(--line);
+      border-radius:var(--radius);padding:22px;overflow:hidden;transition:transform .25s,box-shadow .25s,border-color .25s}
+    .card::before{content:"";position:absolute;inset:0;background:radial-gradient(120px 120px at 80% -10%,var(--c),transparent 70%);opacity:.18;transition:.3s}
+    .card:hover{transform:translateY(-6px);border-color:var(--c);box-shadow:0 18px 40px rgba(0,0,0,.5),0 0 30px -6px var(--c)}
+    .card:hover::before{opacity:.32}
+    .card .top{display:flex;align-items:center;gap:14px;position:relative}
+    .card .img{width:62px;height:62px;border-radius:50%;display:grid;place-items:center;font-weight:900;color:#0a0a12;
+      background:radial-gradient(circle at 30% 30%,#fff3,transparent 60%),var(--c);
+      box-shadow:0 0 0 2px #0007,0 0 22px var(--c);flex:none}
+    .card .img img{width:100%;height:100%;border-radius:50%;object-fit:cover}
+    .card h3{font-size:1.15rem}
+    .card .sym{font-size:.78rem;color:var(--muted);font-weight:700;letter-spacing:.12em}
+    .card p{color:var(--muted);font-size:.92rem;margin:14px 0 16px;min-height:3.2em;position:relative}
+    .meta{display:flex;justify-content:space-between;font-size:.78rem;color:var(--muted);border-top:1px dashed var(--line);padding-top:12px;margin-bottom:14px}
+    .meta b{color:var(--txt)}
+    .actions{display:flex;gap:8px;position:relative}
+    .actions .btn{flex:1;justify-content:center;padding:10px 12px;font-size:.85rem;border-radius:10px}
+    .trade{background:var(--c);color:#06060c;border:0}
+    .trade:hover{filter:brightness(1.1);transform:translateY(-2px)}
+
+    /* ============ GENERIC BLOCKS ============ */
+    .cols{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(24px,4vw,54px);align-items:center}
+    .feature{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+    .fbox{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:22px;transition:.25s}
+    .fbox:hover{transform:translateY(-4px);border-color:var(--brand)}
+    .fbox .ic{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;font-size:1.3rem;
+      background:linear-gradient(135deg,rgba(124,92,255,.25),rgba(34,211,238,.25));border:1px solid var(--line);margin-bottom:12px}
+    .fbox h3{font-size:1.05rem;margin-bottom:6px}
+    .fbox p{color:var(--muted);font-size:.92rem}
+
+    /* timeline */
+    .timeline{position:relative;margin-top:24px;padding-left:28px}
+    .timeline::before{content:"";position:absolute;left:8px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--brand),var(--brand2))}
+    .tl{position:relative;margin-bottom:22px}
+    .tl::before{content:"";position:absolute;left:-24px;top:5px;width:14px;height:14px;border-radius:50%;background:var(--brand2);box-shadow:0 0 12px var(--brand2)}
+    .tl b{color:var(--brand2)}
+
+    /* immutable */
+    .lock{display:grid;place-items:center;gap:14px}
+    .lock .ring{width:120px;height:120px;border-radius:50%;display:grid;place-items:center;font-size:2.6rem;
+      background:radial-gradient(circle,#1a1a35,#0a0a12);border:2px solid var(--gold);
+      box-shadow:0 0 40px rgba(245,197,66,.35);animation:spin 14s linear infinite}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    .pill{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;
+      background:rgba(34,224,107,.12);border:1px solid rgba(34,224,107,.4);color:var(--green);font-weight:700;font-size:.85rem}
+
+    /* steps */
+    .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;counter-reset:s}
+    .step{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:22px;position:relative}
+    .step::before{counter-increment:s;content:counter(s);position:absolute;top:-14px;left:18px;width:34px;height:34px;
+      border-radius:10px;display:grid;place-items:center;font-weight:900;color:#06060c;
+      background:linear-gradient(135deg,var(--brand),var(--brand2));box-shadow:0 6px 16px rgba(124,92,255,.5)}
+    .step h3{margin:10px 0 6px;font-size:1.02rem}
+    .step p{color:var(--muted);font-size:.92rem}
+    .wallets{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+    .wallets span{font-size:.78rem;padding:5px 10px;border-radius:8px;background:rgba(255,255,255,.05);border:1px solid var(--line)}
+    .copyrow{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:18px;background:var(--panel2);
+      border:1px dashed var(--line);border-radius:12px;padding:12px}
+    .copyrow code{flex:1;min-width:200px;word-break:break-all;font-size:.8rem;color:var(--brand2)}
+
+    /* growth widgets */
+    .grow{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+    .gcard{background:linear-gradient(180deg,var(--panel),var(--bg2));border:1px solid var(--line);border-radius:var(--radius);padding:22px}
+    .gcard h3{font-size:1.05rem;margin-bottom:8px}
+    .gcard p{color:var(--muted);font-size:.9rem}
+    .count{display:flex;gap:10px;justify-content:center;margin:14px 0}
+    .count div{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:12px 14px;min-width:64px;text-align:center}
+    .count b{font-size:1.6rem;display:block;color:var(--brand2)}
+    .count small{font-size:.65rem;letter-spacing:.1em;color:var(--muted);text-transform:uppercase}
+    .refbox{display:flex;gap:8px;margin-top:12px}
+    .refbox input{flex:1;background:var(--bg);border:1px solid var(--line);border-radius:10px;color:var(--txt);padding:10px;font-size:.85rem}
+
+    /* disclaimer */
+    .disclaimer{border:1px solid rgba(255,59,92,.4);background:rgba(255,59,92,.07);border-radius:var(--radius);padding:22px}
+    .disclaimer h3{color:var(--red);display:flex;align-items:center;gap:8px;margin-bottom:8px}
+    .disclaimer p{font-size:.92rem;color:#f4c9d2}
+
+    /* faq */
+    .faq details{border:1px solid var(--line);border-radius:12px;background:var(--panel);margin-bottom:10px;overflow:hidden}
+    .faq summary{cursor:pointer;padding:16px 18px;font-weight:700;list-style:none;display:flex;justify-content:space-between}
+    .faq summary::-webkit-details-marker{display:none}
+    .faq summary::after{content:"+";color:var(--brand2);font-size:1.3rem}
+    .faq details[open] summary::after{content:"–"}
+    .faq p{padding:0 18px 16px;color:var(--muted)}
+
+    /* footer */
+    footer{border-top:1px solid var(--line);background:var(--bg2);padding:46px 0 26px;margin-top:30px}
+    .fgrid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:28px}
+    footer h4{font-size:.85rem;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-bottom:12px}
+    footer a{display:block;color:var(--muted);font-size:.9rem;margin-bottom:8px;transition:.2s}
+    footer a:hover{color:var(--txt)}
+    .socials{display:flex;gap:10px;margin-top:10px}
+    .socials a{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;background:rgba(255,255,255,.05);border:1px solid var(--line);margin:0}
+    .bottom{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;border-top:1px solid var(--line);margin-top:30px;padding-top:18px;color:var(--muted);font-size:.82rem}
+
+    /* reveal + to-top */
+    .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s,transform .7s}
+    .reveal.in{opacity:1;transform:none}
+    #top{position:fixed;right:18px;bottom:18px;z-index:60;width:46px;height:46px;border-radius:50%;
+      background:linear-gradient(135deg,var(--brand),var(--brand2));border:0;color:#06060c;font-size:1.2rem;cursor:pointer;
+      opacity:0;pointer-events:none;transition:.3s;box-shadow:0 8px 22px rgba(124,92,255,.5)}
+    #top.show{opacity:1;pointer-events:auto}
+
+    /* ============ RESPONSIVE ============ */
+    @media(max-width:860px){
+      .cols{grid-template-columns:1fr}
+      .fgrid{grid-template-columns:1fr 1fr}
+      .nav ul{position:fixed;inset:68px 0 auto 0;flex-direction:column;background:rgba(10,10,18,.97);
+        padding:20px 24px;gap:16px;border-bottom:1px solid var(--line);transform:translateY(-130%);transition:.3s}
+      .nav ul.open{transform:none}
+      .burger{display:flex}
+      .nav .btn-primary{display:none}
+    }
+    @media(max-width:520px){.fgrid{grid-template-columns:1fr}.count div{min-width:54px;padding:10px}}
+    @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+  </style>
 </head>
-
 <body>
+  <canvas id="stars" aria-hidden="true"></canvas>
+  <div id="grid" aria-hidden="true"></div>
 
-<div class="container">
-    <div class="logo">XLM PROJECT</div>
+  <!-- ============ NAV ============ -->
+  <header>
+    <div class="wrap nav">
+      <a class="logo" href="#home" aria-label="XLM Project home">
+        <span class="coin">X</span> XLM<span style="color:var(--muted);font-weight:600">·Project</span>
+      </a>
+      <nav aria-label="Primary">
+        <ul id="menu">
+          <li><a href="#tokens">Tokens</a></li>
+          <li><a href="#stellar">Stellar</a></li>
+          <li><a href="#vision">Vision</a></li>
+          <li><a href="#immutable">Immutable</a></li>
+          <li><a href="#buy">How to Buy</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </nav>
+      <a class="btn btn-primary" href="#buy">Buy Now →</a>
+      <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </header>
 
-    <h1>COMING SOON</h1>
+  <!-- ============ TICKER ============ -->
+  <div class="ticker" aria-hidden="true"><div class="track" id="track"></div></div>
 
-    <div class="line"></div>
+  <main>
+    <!-- ============ HERO ============ -->
+    <section class="section hero" id="home">
+      <div class="wrap">
+        <span class="kicker">Live on the Stellar Network</span>
+        <h1>Major Crypto Assets,<br><span class="grad">Reborn on Stellar.</span></h1>
+        <p class="lead" style="margin:18px auto 0">Ten of the world's most recognized tokens — <b>ADA · BNB · BTC · DOGE · ETH · PEPE · SHIBA · SOL · TRX · XLM</b> — issued as <b>fixed‑supply, immutable anchored assets</b>. Settle in seconds for a fraction of a cent.</p>
 
-    <p>Something new is on the horizon.</p>
-</div>
+        <div class="badges">
+          <span class="chip">⚡ 3–5s settlement</span>
+          <span class="chip">🪙 ~$0.000x fees</span>
+          <span class="chip">🔒 <b>Immutable</b> supply</span>
+          <span class="chip">🌱 Eco‑efficient</span>
+        </div>
 
-<footer>© 2026 XLM PROJECT. ALL RIGHTS RESERVED.</footer>
+        <div class="coin-collage" id="collage" aria-hidden="true"></div>
 
+        <div class="badges" style="margin-top:26px">
+          <a class="btn btn-primary" href="#tokens">Explore Tokens</a>
+          <a class="btn btn-ghost" href="#buy">How to Buy</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ STATS ============ -->
+    <section class="wrap reveal">
+      <div class="stats">
+        <div class="stat"><div class="num" data-to="10">0</div><div class="lbl">Anchored Tokens</div></div>
+        <div class="stat"><div class="num" data-to="600" data-suffix="B">0</div><div class="lbl">Fixed Supply / Token</div></div>
+        <div class="stat"><div class="num" data-to="100" data-suffix="%">0</div><div class="lbl">Immutable Issuer</div></div>
+        <div class="stat"><div class="num" data-to="5" data-prefix="<" data-suffix="s">0</div><div class="lbl">Finality</div></div>
+        <div class="stat"><div class="num" data-to="2015" data-raw="1">0</div><div class="lbl">Stellar Live Since</div></div>
+      </div>
+    </section>
+
+    <!-- ============ TOKENS ============ -->
+    <section class="section" id="tokens">
+      <div class="wrap">
+        <span class="kicker">The Asset Suite</span>
+        <h2>Trade Each Token on the Stellar DEX</h2>
+        <p class="lead">Every card links to its <b>own live trading pair</b> on the Stellar Decentralized Exchange. One issuer, ten assets, fixed 600,000,000,000 supply each.</p>
+        <div class="grid" id="tokenGrid" style="margin-top:30px"></div>
+      </div>
+    </section>
+
+    <!-- ============ STELLAR OVERVIEW ============ -->
+    <section class="section" id="stellar">
+      <div class="wrap cols">
+        <div class="reveal">
+          <span class="kicker">The Network</span>
+          <h2>Why Stellar?</h2>
+          <p class="lead">Stellar is a public, open‑source blockchain purpose‑built for moving value between assets and currencies. Its built‑in decentralized exchange (SDEX) and liquidity pools let any two assets trade directly, with path payments finding the best route automatically [[50]].</p>
+          <p class="lead" style="margin-top:14px">Anchored assets — like XLM Project's tokens — are issued by a trusted issuer account and held via a trustline, giving you interoperability with the wider Stellar ecosystem at near‑zero cost.</p>
+        </div>
+        <div class="feature reveal">
+          <div class="fbox"><div class="ic">⚡</div><h3>Fast</h3><p>Transactions finalize in 3–5 seconds — payments feel instant.</p></div>
+          <div class="fbox"><div class="ic">🪙</div><h3>Cheap</h3><p>Base fee is a fraction of a cent, ideal for micro‑transfers.</p></div>
+          <div class="fbox"><div class="ic">🔗</div><h3>Interoperable</h3><p>Native DEX pairs any asset; bridges connect to other chains.</p></div>
+          <div class="fbox"><div class="ic">🌱</div><h3>Eco‑efficient</h3><p>Consensus‑based — no energy‑hungry mining.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ VISION ============ -->
+    <section class="section" id="vision">
+      <div class="wrap">
+        <div class="center reveal">
+          <span class="kicker">Our Vision</span>
+          <h2>One Issuer. Every Asset. Zero Friction.</h2>
+          <p class="lead" style="margin-inline:auto">XLM Project exists to bring the world's most‑recognized crypto assets onto Stellar's rails — so users can hold, send and swap them with the speed and cost of a payment, backed by provably fixed, immutable supply.</p>
+        </div>
+        <div class="cols" style="margin-top:36px">
+          <div class="reveal">
+            <h3 style="color:var(--brand2)">Roadmap</h3>
+            <div class="timeline">
+              <div class="tl"><b>Phase 1 — Launch.</b> Issue all 10 anchored tokens with fixed 600B supply; publish <code>stellar.toml</code>; open DEX liquidity.</div>
+              <div class="tl"><b>Phase 2 — Distribution.</b> Wallet integrations, listing on SDEX front‑ends, community airdrops & referrals.</div>
+              <div class="tl"><b>Phase 3 — Utility.</b> Cross‑asset payment routes, LP incentives, merchant checkout SDK.</div>
+              <div class="tl"><b>Phase 4 — Ecosystem.</b> Bridge tooling, NFT membership badges, governance via the immutable base.</div>
+            </div>
+          </div>
+          <div class="feature reveal">
+            <div class="fbox"><div class="ic">🎯</div><h3>Accessibility</h3><p>A single home domain and one issuer make discovery trivial for wallets and DEXs.</p></div>
+            <div class="fbox"><div class="ic">🛡️</div><h3>Trustlessness</h3><p>Immutability means the rules can never be bent after launch.</p></div>
+            <div class="fbox"><div class="ic">🌐</div><h3>Global Reach</h3><p>Stellar's rails serve remittances and payments worldwide.</p></div>
+            <div class="fbox"><div class="ic">🤝</div><h3>Community First</h3><p>Rewards, airdrops and referrals keep holders engaged long‑term.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ IMMUTABLE ============ -->
+    <section class="section" id="immutable">
+      <div class="wrap cols">
+        <div class="lock reveal">
+          <div class="ring">🔒</div>
+          <span class="pill">⏳ Permanently Active · Immutable</span>
+        </div>
+        <div class="reveal">
+          <span class="kicker">The Immutable Guarantee</span>
+          <h2>Locked Forever. Built to Outlive Hype.</h2>
+          <p class="lead">On Stellar, an issuer can set its <b>master‑key threshold to zero</b>. The moment that happens, the account can never sign a new operation again — no extra supply can ever be minted, and flags can never be changed.</p>
+          <p class="lead" style="margin-top:14px">XLM Project applies this to every token: a <b>fixed 600,000,000,000 supply</b>, permanently active, immune to dilution or admin tampering. That is what makes these assets well‑suited to a long‑term, hold‑and‑use strategy rather than a short‑term trade.</p>
+          <div class="badges" style="justify-content:flex-start;margin-top:18px">
+            <span class="chip">No minting possible</span>
+            <span class="chip">No config changes</span>
+            <span class="chip">Provably fixed supply</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ HOW TO BUY ============ -->
+    <section class="section" id="buy">
+      <div class="wrap">
+        <div class="center reveal">
+          <span class="kicker">Getting Started</span>
+          <h2>How to Buy on the Stellar Ecosystem</h2>
+          <p class="lead" style="margin-inline:auto">Four simple steps from wallet to token — fully self‑custodial.</p>
+        </div>
+        <div class="steps" style="margin-top:30px">
+          <div class="step reveal"><h3>Create a Stellar wallet</h3><p>Install a non‑custodial wallet and back up your secret key.</p>
+            <div class="wallets"><span>Lobstr</span><span>Freighter</span><span>Rabet</span><span>StellarX</span></div></div>
+          <div class="step reveal"><h3>Fund it with XLM</h3><p>Buy or transfer a little XLM to cover the ~1 XLM reserve and swap fees.</p></div>
+          <div class="step reveal"><h3>Add a trustline</h3><p>Open a trustline to the token (e.g. <b>ADA‑GD4Y…SUSA</b>). This tells the network you accept that asset.</p></div>
+          <div class="step reveal"><h3>Swap on the DEX</h3><p>Use StellarTerm or Lumenswap to swap XLM (or USDC) for your chosen token instantly.</p></div>
+        </div>
+
+        <div class="copyrow reveal">
+          <span style="font-size:.85rem;color:var(--muted)">Issuer (anchor):</span>
+          <code id="issuer">GD4YAI6OLL6UB66JZ2D7T2CTSEFMR7V44HGZNHZX7Y4NIMRDIAP3SUSA</code>
+          <button class="btn btn-ghost" id="copyIssuer">Copy</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ GROWTH / ATTRACT USERS ============ -->
+    <section class="section" id="growth">
+      <div class="wrap">
+        <div class="center reveal">
+          <span class="kicker">Join the Movement</span>
+          <h2>Ways We Grow Together</h2>
+        </div>
+        <div class="grow" style="margin-top:28px">
+          <div class="gcard reveal">
+            <h3>🎁 Community Airdrop</h3>
+            <p>Early holders earn a snapshot airdrop. Countdown to the next round:</p>
+            <div class="count" id="countdown"><div><b>00</b><small>days</small></div><div><b>00</b><small>hrs</small></div><div><b>00</b><small>min</small></div><div><b>00</b><small>sec</small></div></div>
+            <a class="btn btn-primary" href="#buy" style="width:100%;justify-content:center">Qualify Now</a>
+          </div>
+          <div class="gcard reveal">
+            <h3>🔗 Referral Rewards</h3>
+            <p>Share your Stellar address and earn a cut when friends trade.</p>
+            <div class="refbox">
+              <input id="refAddr" placeholder="GXXXX…your address" aria-label="Your Stellar address" />
+              <button class="btn btn-ghost" id="genRef">Generate</button>
+            </div>
+            <p id="refOut" style="margin-top:10px;font-size:.8rem;color:var(--brand2);word-break:break-all"></p>
+          </div>
+          <div class="gcard reveal">
+            <h3>💧 Liquidity Mining</h3>
+            <p>Provide XLM/token liquidity on the SDEX and earn trading‑fee rewards automatically.</p>
+            <a class="btn btn-ghost" href="https://app.lumenswap.io/swap" target="_blank" rel="noopener" style="width:100%;justify-content:center;margin-top:10px">Open Lumenswap</a>
+          </div>
+          <div class="gcard reveal">
+            <h3>🏅 Holder Badges</h3>
+            <p>On‑chain NFT membership badges unlock early access, airdrops and governance perks.</p>
+            <a class="btn btn-ghost" href="#tokens" style="width:100%;justify-content:center;margin-top:10px">View Tokens</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ DISCLAIMER ============ -->
+    <section class="wrap reveal" style="padding-bottom:30px">
+      <div class="disclaimer">
+        <h3>⚠️ Risk Disclaimer — Do Your Own Research</h3>
+        <p>These are <b>anchored tokens</b> on the Stellar network and, like all crypto assets, their <b>price is highly volatile</b> and can rise or fall dramatically, including to zero. Nothing on this site is financial, investment, legal or tax advice. Immutability guarantees that <i>supply cannot change</i> — it does <b>not</b> guarantee value, returns, or liquidity. Always verify the issuer address and <code>stellar.toml</code> on‑chain, never share your secret key, and only invest what you can afford to lose. Conduct your own research (DYOR) before trading.</p>
+      </div>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section class="section" id="faq">
+      <div class="wrap" style="max-width:820px">
+        <div class="center reveal"><span class="kicker">Answers</span><h2>Frequently Asked Questions</h2></div>
+        <div class="faq reveal" style="margin-top:24px">
+          <details open><summary>What are XLM Project tokens?</summary><p>Anchored representations of ADA, BNB, BTC, DOGE, ETH, PEPE, SHIBA, SOL, TRX and XLM, issued on Stellar by <code>GD4Y…SUSA</code> with a fixed 600,000,000,000 supply each.</p></details>
+          <details><summary>Are they the same as the original coins?</summary><p>No. They are <b>tokens on Stellar</b>, not the native coins on their own chains. They live entirely within the Stellar ecosystem.</p></details>
+          <details><summary>What does "immutable" mean here?</summary><p>The issuer's master‑key threshold is set to zero, so no new supply can ever be minted and settings can't be changed — the supply is locked forever.</p></details>
+          <details><summary>How do I buy them?</summary><p>Create a Stellar wallet, fund it with XLM, add a trustline to the token, then swap on StellarTerm or Lumenswap.</p></details>
+          <details><summary>Where do the trade links go?</summary><p>Each card links to its live pair on the Stellar Decentralized Exchange (StellarTerm), with an explorer link for on‑chain details.</p></details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer>
+    <div class="wrap">
+      <div class="fgrid">
+        <div>
+          <a class="logo" href="#home"><span class="coin">X</span> XLM·Project</a>
+          <p style="color:var(--muted);font-size:.9rem;margin-top:12px">Immutable anchored tokens on Stellar. Fixed supply. Permanently active.</p>
+          <div class="socials">
+            <a href="https://x.com/xlmproject" target="_blank" rel="noopener" aria-label="X">𝕏</a>
+            <a href="https://t.me/xlmproject" target="_blank" rel="noopener" aria-label="Telegram">✈</a>
+            <a href="https://discord.gg/xlmproject" target="_blank" rel="noopener" aria-label="Discord">💬</a>
+            <a href="https://github.com/xlmproject" target="_blank" rel="noopener" aria-label="GitHub">⌥</a>
+          </div>
+        </div>
+        <div><h4>Tokens</h4><a href="#tokens">ADA</a><a href="#tokens">BTC</a><a href="#tokens">ETH</a><a href="#tokens">SOL</a><a href="#tokens">XLM</a></div>
+        <div><h4>Project</h4><a href="#stellar">Stellar</a><a href="#vision">Vision</a><a href="#immutable">Immutability</a><a href="#buy">How to Buy</a><a href="#faq">FAQ</a></div>
+        <div><h4>Developers</h4><a href="/.well-known/stellar.toml">stellar.toml</a><a href="https://stellar.expert/explorer/public/account/GD4YAI6OLL6UB66JZ2D7T2CTSEFMR7V44HGZNHZX7Y4NIMRDIAP3SUSA" target="_blank" rel="noopener">Issuer on‑chain</a><a href="https://developers.stellar.org" target="_blank" rel="noopener">Stellar Docs</a></div>
+      </div>
+      <div class="bottom">
+        <span>© <span id="year"></span> XLM Project. Home domain: <b>xlmproject.github.io</b></span>
+        <span>Not financial advice · DYOR</span>
+      </div>
+    </div>
+  </footer>
+
+  <button id="top" aria-label="Back to top">↑</button>
+
+  <script>
+    /* =========================================================
+       CONFIG — single source of truth. Change venue here.
+       ========================================================= */
+    const ISSUER = "GD4YAI6OLL6UB66JZ2D7T2CTSEFMR7V44HGZNHZX7Y4NIMRDIAP3SUSA";
+    const SUPPLY = "600,000,000,000";
+    // Per-token trading page on the Stellar DEX (StellarTerm pair format: CODE-ISSUER / XLM-native)
+    const tradeUrl = c => `https://stellarterm.com/exchange/${c}-${ISSUER}/XLM-native`;
+    // On-chain detail page (StellarExpert asset page, includes trade tab)
+    const exploreUrl = c => `https://stellar.expert/explorer/public/asset/${c}-${ISSUER}`;
+
+    const TOKENS = [
+      {code:"XLM", name:"Stellar Lumens", c:"#f5c542", desc:"The native asset that fuels every transaction and reserve on the network."},
+      {code:"SHIBA", name:"Shiba Inu", c:"#ff3b3b", desc:"Community‑centric meme token, brought to Stellar's fast, low‑fee rails."},
+      {code:"PEPE", name:"Pepe", c:"#22e06b", desc:"High‑liquidity meme asset with instant settlement on Stellar."},
+      {code:"BTC", name:"Bitcoin", c:"#f7931a", desc:"The world's premier store of value, anchored for cheap, quick transfers."},
+      {code:"ETH", name:"Ethereum", c:"#8a5cff", desc:"Smart‑contract powerhouse, represented for cross‑ecosystem utility."},
+      {code:"SOL", name:"Solana", c:"#14f1d9", desc:"High‑performance asset bridged into Stellar's global payment rails."},
+      {code:"DOGE", name:"Dogecoin", c:"#e3b341", desc:"The original meme coin, now with Stellar‑grade speed and fees."},
+      {code:"TRX", name:"TRON", c:"#ff2e4d", desc:"Decentralized content & entertainment asset on Stellar."},
+      {code:"ADA", name:"Cardano", c:"#3468d1", desc:"Research‑driven ledger asset, interoperable via the Stellar DEX."},
+      {code:"BNB", name:"Binance Coin", c:"#f0b90b", desc:"Exchange utility token, tradable directly on Stellar's order book."}
+    ];
+
+    /* ---------- Build token grid ---------- */
+    const grid = document.getElementById('tokenGrid');
+    grid.innerHTML = TOKENS.map((t,i)=>`
+      <article class="card reveal" style="--c:${t.c};transition-delay:${i*40}ms">
+        <div class="top">
+          <div class="img"><img src="assets/${t.code.toLowerCase()}.png" alt="${t.name} logo" loading="lazy"
+            onerror="this.remove();this.parentNode.textContent='${t.code[0]}'"></div>
+          <div><h3>${t.name}</h3><div class="sym">${t.code} · STELLAR</div></div>
+        </div>
+        <p>${t.desc}</p>
+        <div class="meta"><span>Supply <b>${SUPPLY}</b></span><span>Decimals <b>6</b></span></div>
+        <div class="actions">
+          <a class="btn trade" href="${tradeUrl(t.code)}" target="_blank" rel="noopener">Trade ${t.code}</a>
+          <a class="btn btn-ghost" href="${exploreUrl(t.code)}" target="_blank" rel="noopener">Details</a>
+        </div>
+      </article>`).join('');
+
+    /* ---------- Hero collage + ticker ---------- */
+    document.getElementById('collage').innerHTML = TOKENS.map((t,i)=>
+      `<span class="orb" style="--c:${t.c};--d:${i*0.35}s" title="${t.name}">${t.code}</span>`).join('');
+    const tickHTML = TOKENS.map(t=>`<span class="tick" style="color:${t.c}"><span class="dot"></span>${t.code}</span>`).join('');
+    document.getElementById('track').innerHTML = tickHTML + tickHTML; // duplicate for seamless loop
+
+    /* ---------- Particles ---------- */
+    (function(){
+      const cv=document.getElementById('stars'),x=cv.getContext('2d');let w,h,ps=[];
+      const N=()=>Math.min(90,Math.floor(w/16));
+      function size(){w=cv.width=innerWidth;h=cv.height=innerHeight;ps=Array.from({length:N()},()=>({x:Math.random()*w,y:Math.random()*h,r:Math.random()*1.8+.4,s:Math.random()*.4+.05,o:Math.random()}))}
+      function draw(){x.clearRect(0,0,w,h);for(const p of ps){p.y-=p.s;p.o+=.01;if(p.y<-5){p.y=h+5;p.x=Math.random()*w}x.beginPath();x.arc(p.x,p.y,p.r,0,7);x.fillStyle=`rgba(124,92,255,${.25+Math.sin(p.o)*.2})`;x.fill()}requestAnimationFrame(draw)}
+      addEventListener('resize',size);size();if(!matchMedia('(prefers-reduced-motion:reduce)').matches)draw();
+    })();
+
+    /* ---------- Scroll reveal ---------- */
+    const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+    /* ---------- Counters ---------- */
+    const cio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){const el=e.target,to=+el.dataset.to,raw=el.dataset.raw,suf=el.dataset.suffix||'',pre=el.dataset.prefix||'';
+      if(raw){el.textContent='2015';cio.unobserve(el);return}
+      let n=0;const step=Math.max(1,Math.ceil(to/60));const t=setInterval(()=>{n+=step;if(n>=to){n=to;clearInterval(t)}el.textContent=pre+n.toLocaleString()+suf},16);
+      cio.unobserve(el)}}),{threshold:.5});
+    document.querySelectorAll('.num').forEach(el=>cio.observe(el));
+
+    /* ---------- Mobile menu ---------- */
+    const burger=document.getElementById('burger'),menu=document.getElementById('menu');
+    burger.addEventListener('click',()=>{const o=menu.classList.toggle('open');burger.setAttribute('aria-expanded',o)});
+    menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>menu.classList.remove('open')));
+
+    /* ---------- Copy issuer ---------- */
+    document.getElementById('copyIssuer').addEventListener('click',async e=>{
+      try{await navigator.clipboard.writeText(ISSUER);e.target.textContent='Copied ✓';setTimeout(()=>e.target.textContent='Copy',1600)}catch{e.target.textContent='Copy failed'}
+    });
+
+    /* ---------- Referral generator (client-side demo) ---------- */
+    document.getElementById('genRef').addEventListener('click',()=>{
+      const a=document.getElementById('refAddr').value.trim();
+      document.getElementById('refOut').textContent = a ? `Referral link: https://xlmproject.github.io/?ref=${a}` : 'Enter your Stellar address first.';
+    });
+
+    /* ---------- Airdrop countdown (auto-rolls +30 days) ---------- */
+    (function(){
+      const target=Date.now()+30*864e5;
+      const cells=document.querySelectorAll('#countdown b');
+      const set=(i,v)=>{if(cells[i])cells[i].textContent=String(v).padStart(2,'0')};
+      (function t(){let d=Math.max(0,target-Date.now());const day=Math.floor(d/864e5),hr=Math.floor(d%864e5/36e5),mi=Math.floor(d%36e5/6e4),se=Math.floor(d%6e4/1e3);
+        set(0,day);set(1,hr);set(2,mi);set(3,se);if(d>0)requestAnimationFrame(()=>setTimeout(t,1000))})();
+    })();
+
+    /* ---------- Back to top + year ---------- */
+    const top=document.getElementById('top');
+    addEventListener('scroll',()=>top.classList.toggle('show',scrollY>500));
+    top.addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));
+    document.getElementById('year').textContent=new Date().getFullYear();
+  </script>
 </body>
 </html>
